@@ -5,7 +5,7 @@ class Lists::TasksController < ApplicationController
 
   # GET /lists/tasks
   def index
-    @tasks = @list.tasks.all
+    @tasks = @list.tasks.order(:dueby)
   end
 
   # GET /lists/tasks/1
