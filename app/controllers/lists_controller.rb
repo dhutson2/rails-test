@@ -34,10 +34,13 @@ class ListsController < ApplicationController
   def update
     @list = List.find(params[:id])
 
+    respond_to do |format|
     if @list.update_attributes(params[:list])
-      redirect_to @list, notice: 'List was successfully updated.'
+      format.html { redirect_to @list, notice: 'List was successfully updated.' }
+      format.json { render json: @list}
     else
-      render action: "edit"
+      format.html { render action: "edit" }
+    end
     end
   end
 

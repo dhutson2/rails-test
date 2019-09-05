@@ -1,6 +1,8 @@
-<h1>Editing Task</h1>
+<h1 class='header'>Editing Task</h1>
 
 <%= render 'form' %>
 
+<div class='footer-links'>
 <%= link_to 'Show', list_task_path(@list, @task) %> |
 <%= link_to 'Back', list_tasks_path(@list) %>
+</div>
