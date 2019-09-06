@@ -23,10 +23,13 @@ class ListsController < ApplicationController
   def create
     @list = List.new(params[:list])
 
+    respond_to do |format|
     if @list.save
-      redirect_to @list, notice: 'List was successfully created.'
+      format.html {redirect_to @list, notice: 'List was successfully created.'}
+      format.json {render json: @list}
     else
-      render action: "new"
+      format.html {render action: "new"}
+    end
     end
   end
 
